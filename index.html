@@ -3,969 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代号鸢 - 广陵王二次元创作社区</title>
+    <title>广陵王主题二次元社区</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-        }
-
-        :root {
-            --primary-color: #8a2be2;
-            --secondary-color: #4b0082;
-            --accent-color: #ff69b4;
-            --light-bg: #f5f0ff;
-            --dark-bg: #1a0b2e;
-            --text-color: #333;
-            --light-text: #f8f8ff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(245, 240, 255, 0.9), rgba(245, 240, 255, 0.9)),
-                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEzOCwgNDMsIDIyNiwgMC4xKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+');
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 头部样式 */
-        header {
-            background: linear-gradient(to right, var(--dark-bg), var(--secondary-color));
-            color: var(--light-text);
-            padding: 20px 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(to right, #ff69b4, #8a2be2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .logo-text p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .search-bar {
-            display: flex;
-            width: 40%;
-        }
-
-        .search-bar input {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 30px 0 0 30px;
-            font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: var(--light-text);
-        }
-
-        .search-bar input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .search-bar button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0 25px;
-            border-radius: 0 30px 30px 0;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: var(--transition);
-        }
-
-        .search-bar button:hover {
-            background-color: #ff1493;
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* 主要内容区域 */
-        main {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .content-area {
-            flex: 3;
-        }
-
-        .sidebar {
-            flex: 1;
-        }
-
-        /* 角色档案卡片 */
-        .character-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEzOCwgNDMsIDIyNiwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
-        }
-
-        .character-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .character-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .character-info h2 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .character-info p {
-            opacity: 0.9;
-        }
-
-        .character-tags {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-
-        .character-content {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .character-stats {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* 帖子网格 */
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .post-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .post-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .post-type {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            z-index: 2;
-        }
-
-        .post-image {
-            height: 180px;
-            width: 100%;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-
-        .post-content {
-            padding: 20px;
-        }
-
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .post-author {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .author-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .post-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-
-        .post-excerpt {
-            color: #555;
-            margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .post-actions {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-
-        .post-action {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #666;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .post-action:hover {
-            color: var(--primary-color);
-        }
-
-        /* 侧边栏样式 */
-        .sidebar-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .sidebar-title {
-            font-size: 1.3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .trending-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .trending-post {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px;
-            border-radius: 10px;
-            transition: var(--transition);
-        }
-
-        .trending-post:hover {
-            background-color: #f9f5ff;
-        }
-
-        .trending-rank {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            width: 30px;
-            text-align: center;
-        }
-
-        .trending-content h4 {
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .trending-content p {
-            font-size: 0.8rem;
-            color: #777;
-        }
-
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .cloud-tag {
-            background-color: #f0f0f0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .cloud-tag:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .cloud-tag.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* 页脚样式 */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 992px) {
-            main {
-                flex-direction: column;
-            }
-            
-            .search-bar {
-                width: 50%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .search-bar {
-                width: 100%;
-                order: 3;
-            }
-            
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .character-header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* 背景图片区域 */
-        .background-section {
-            height: 300px;
-            border-radius: 15px;
-            margin: 30px 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .bg-image-1 {
-            background: 
-                linear-gradient(rgba(26, 11, 46, 0.7), rgba(26, 11, 46, 0.7)),
-                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAUDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/2Q==');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .bg-image-2 {
-            background: 
-                linear-gradient(rgba(138, 43, 226, 0.7), rgba(75, 0, 130, 0.7)),
-                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAUDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/2Q==');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .bg-quote {
-            font-size: 1.8rem;
-            font-style: italic;
-            text-align: center;
-            max-width: 80%;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .bg-attribution {
-            position: absolute;
-            bottom: 15px;
-            right: 20px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 头部区域 -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">
+    <!-- 导航栏 -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
                     <i class="fas fa-crown"></i>
+                    <span>广陵王社区</span>
                 </div>
-                <div class="logo-text">
-                    <h1>代号鸢 · 广陵王</h1>
-                    <p>二次元创作交流社区</p>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索角色、作品或用户...">
                 </div>
-            </div>
-            
-            <div class="search-bar">
-                <input type="text" placeholder="搜索广陵王相关内容...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-            
-            <div class="user-actions">
-                <button class="btn btn-secondary"><i class="fas fa-user"></i> 登录</button>
-                <button class="btn btn-primary"><i class="fas fa-pen"></i> 发布作品</button>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-home"></i> 首页</a>
+                    <a href="#"><i class="fas fa-compass"></i> 发现</a>
+                    <a href="#"><i class="fas fa-user"></i> 登录</a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i> 发布</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <!-- 角色档案区域 -->
-        <section class="character-card">
-            <div class="character-header">
-                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="广陵王" class="character-avatar">
-                <div class="character-info">
-                    <h2>广陵王</h2>
-                    <p>代号鸢核心角色 | 王者风范 | 深藏不露</p>
-                    <div class="character-tags">
-                        <span class="tag">王者</span>
-                        <span class="tag">谋略</span>
-                        <span class="tag">深沉</span>
-                        <span class="tag">霸气</span>
-                        <span class="tag">神秘</span>
-                    </div>
-                </div>
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>广陵王二次元创作社区</h1>
+                <p>探索绣衣校尉的传奇人生，分享同人创作与角色解析</p>
+                <a href="#" class="btn btn-secondary">开始探索 <i class="fas fa-arrow-right"></i></a>
             </div>
-            
-            <div class="character-content">
-                <div class="character-stats">
-                    <div class="stat">
-                        <div class="stat-value">1,248</div>
-                        <div class="stat-label">作品数量</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">5.6K</div>
-                        <div class="stat-label">关注者</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">28.4K</div>
-                        <div class="stat-label">总点赞数</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">892</div>
-                        <div class="stat-label">讨论话题</div>
-                    </div>
-                </div>
-                
-                <p>广陵王是代号鸢中的核心角色，以深沉的性格和卓越的谋略著称。表面上是威严的王者，内心却有着不为人知的柔软一面。其复杂的人物性格和丰富的背景故事使其成为玩家最喜爱的角色之一。</p>
-                
-                <div class="background-section bg-image-1">
-                    <div class="bg-quote">"莫名其妙的有种亲切感，明明是第一次见"</div>
-                    <div class="bg-attribution">—— 广陵王角色台词</div>
-                </div>
-                
-                <p>在游戏剧情中，广陵王展现出了非凡的领导才能和深沉的情感世界。许多玩家被其复杂的人物性格所吸引，创作了大量同人作品。</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 主要内容区域 -->
-        <main>
+    <!-- 主要内容区域 -->
+    <div class="container">
+        <div class="main-content">
+            <!-- 左侧内容区 -->
             <div class="content-area">
-                <h2 style="color: var(--secondary-color); margin-bottom: 20px;">最新创作 <i class="fas fa-fire" style="color: var(--accent-color);"></i></h2>
+                <h2 class="section-title"><i class="fas fa-fire"></i> 热门创作</h2>
                 
-                <div class="posts-grid">
-                    <!-- 帖子1 -->
-                    <div class="post-card">
-                        <div class="post-type" style="background-color: #ff69b4;">同人文</div>
-                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="广陵王同人作品" class="post-image">
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <div class="post-author">
-                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="作者" class="author-avatar">
-                                    <span>鸢之恋歌</span>
-                                </div>
-                                <span>2023-10-15</span>
-                            </div>
-                            <h3 class="post-title">雪夜之约：广陵王与神秘剑客</h3>
-                            <p class="post-excerpt">那是一个飘雪的夜晚，广陵王独自站在宫殿的屋檐下，望着漫天飞舞的雪花，心中涌起一股莫名的情愫...</p>
-                            <div class="post-actions">
-                                <div class="post-action">
-                                    <i class="far fa-heart"></i>
-                                    <span>324</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="far fa-comment"></i>
-                                    <span>42</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="fas fa-share"></i>
-                                    <span>分享</span>
-                                </div>
-                            </div>
+                <!-- 帖子卡片1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <strong>隐鸢阁弟子</strong> · 3小时前
+                        </div>
+                        <div class="post-category">
+                            同人文
                         </div>
                     </div>
-                    
-                    <!-- 帖子2 -->
-                    <div class="post-card">
-                        <div class="post-type" style="background-color: #8a2be2;">插画</div>
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="广陵王插画" class="post-image">
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <div class="post-author">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="作者" class="author-avatar">
-                                    <span>画师墨染</span>
-                                </div>
-                                <span>2023-10-12</span>
-                            </div>
-                            <h3 class="post-title">广陵王冬季新装设计</h3>
-                            <p class="post-excerpt">为广陵王设计了一套冬季主题的服装，融合了王者气度和冬季的浪漫元素，希望大家喜欢！</p>
-                            <div class="post-actions">
-                                <div class="post-action">
-                                    <i class="far fa-heart"></i>
-                                    <span>512</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="far fa-comment"></i>
-                                    <span>67</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="fas fa-share"></i>
-                                    <span>分享</span>
-                                </div>
-                            </div>
+                    <div class="card-body">
+                        <h3>【广陵王】隐鸢阁旧事：十四岁下山前</h3>
+                        <p>十四岁那年，广陵王还未下山继承世子之位。隐鸢阁的日子是她最无忧无虑的时光，黄老道家思想深深影响了她。在这青山绿水间，她学会了剑术，也学会了如何藏锋...</p>
+                        <div class="post-image" style="height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; margin: 15px 0; border-radius: 8px;">
+                            <i class="fas fa-mountain fa-3x"></i>
+                            <span style="margin-left: 10px;">[隐鸢阁风景图]</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">#广陵王</span>
+                            <span class="tag">#隐鸢阁</span>
+                            <span class="tag">#同人文</span>
                         </div>
                     </div>
-                    
-                    <!-- 帖子3 -->
-                    <div class="post-card">
-                        <div class="post-type" style="background-color: #4b0082;">视频剪辑</div>
-                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="广陵王视频剪辑" class="post-image">
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <div class="post-author">
-                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="作者" class="author-avatar">
-                                    <span>剪辑师小鸢</span>
-                                </div>
-                                <span>2023-10-10</span>
-                            </div>
-                            <h3 class="post-title">【广陵王AMV】王者之路 · 燃向混剪</h3>
-                            <p class="post-excerpt">用一周时间制作的广陵王高燃混剪，展现广陵王的王者之路和内心挣扎，希望大家支持！</p>
-                            <div class="post-actions">
-                                <div class="post-action">
-                                    <i class="far fa-heart"></i>
-                                    <span>891</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="far fa-comment"></i>
-                                    <span>124</span>
-                                </div>
-                                <div class="post-action">
-                                    <i class="fas fa-share"></i>
-                                    <span>分享</span>
-                                </div>
-                            </div>
+                    <div class="card-footer">
+                        <div class="post-actions">
+                            <button><i class="far fa-heart"></i> 512</button>
+                            <button><i class="far fa-comment"></i> 89</button>
+                            <button><i class="far fa-bookmark"></i> 收藏</button>
+                        </div>
+                        <div class="post-stats">
+                            <i class="fas fa-eye"></i> 2.8k
                         </div>
                     </div>
                 </div>
                 
-                <!-- 第二个背景图片区域 -->
-                <div class="background-section bg-image-2">
-                    <div class="bg-quote">"广陵秦王殿下，我，敬你！"</div>
-                    <div class="bg-attribution">—— 游戏角色对白</div>
+                <!-- 帖子卡片2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <strong>绣衣楼密探</strong> · 6小时前
+                        </div>
+                        <div class="post-category">
+                            插画
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>【原创插画】广陵王的三种形象</h3>
+                        <p>尝试绘制了广陵王的三种不同形象：现代高中女生、隐鸢阁世子和乱世将军。每个形象都展现了她的不同侧面，但那双狡黠聪慧的眼睛始终不变。</p>
+                        <div class="character-showcase">
+                            <div class="character-img-box">
+                                <div class="character-img" style="background-image: url('images/image2.jpg');">
+                                    <div class="character-label">现代高中广陵王</div>
+                                </div>
+                            </div>
+                            <div class="character-img-box">
+                                <div class="character-img" style="background-image: url('images/image3.jpg');">
+                                    <div class="character-label">隐鸢阁世子</div>
+                                </div>
+                            </div>
+                            <div class="character-img-box">
+                                <div class="character-img" style="background-image: url('images/image4.jpg');">
+                                    <div class="character-label">乱世将军</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">#广陵王</span>
+                            <span class="tag">#插画</span>
+                            <span class="tag">#角色设计</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="post-actions">
+                            <button><i class="far fa-heart"></i> 824</button>
+                            <button><i class="far fa-comment"></i> 132</button>
+                            <button><i class="far fa-bookmark"></i> 收藏</button>
+                        </div>
+                        <div class="post-stats">
+                            <i class="fas fa-eye"></i> 4.2k
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 帖子卡片3 - 角色深度解析 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <strong>盐王研究者</strong> · 1天前
+                        </div>
+                        <div class="post-category">
+                            角色解析
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>【深度解析】广陵王：前天子利剑到乱世枭雄的蜕变</h3>
+                        <p>广陵王，前天子利剑、绣衣校尉、绣衣楼主，被百姓戏称为"盐王"，官方动物塑是狐狸，狡黠聪慧。她从小在隐鸢阁长大，深受黄老道家思想影响。</p>
+                        
+                        <div class="character-detail">
+                            <h4>人物背景</h4>
+                            <p>前天子刘辩假死后，天下大乱，现在的身份是乱世广陵亲王，一位女扮男装的枭雄。她不再以安定治世的完全正派行为应对问题，而是有勇有谋，果决善战。</p>
+                            
+                            <h4>成长经历</h4>
+                            <p>幼时在隐鸢阁长大，有一把佩剑名为隐光。十四岁那年，下山继承广陵世子之位，每日如履薄冰。曾因为道义忤逆皇帝，试图护住一对母女，也因此结识了袁绍，与他成为相熟的心灵知己。</p>
+                            
+                            <h4>性格特点</h4>
+                            <p>对身边的女官们都很好，她的权力来源于她自己的能力，而非任何人的帮助。她冷静自持但不失血性，胸怀博大包容，数不清的人被她的人格魅力所折服。</p>
+                            
+                            <h4>野心与抱负</h4>
+                            <p>她的人格底色是强大的有野心的，她其实一直想在皇帝的位置上坐一坐，乱世的推进逐渐点燃了她的野心。无论周围是玫瑰或是荆棘，她只会坚定的朝前走，奔向属于自己的人生。</p>
+                            
+                            <h4>疯狂与深情</h4>
+                            <p>她很疯狂，以自己为棋子，赌上天，赌命运，赌生死。她爱百姓，怜百姓，爱苍生，爱世界，她能听见天下人的声音，是一个百年难遇的明君备选。同时是个幽默又风趣的人，有耐心去跟任何人开玩笑，哪怕是身处险境，依旧有游刃有余的从容气魄。</p>
+                        </div>
+                        
+                        <div class="tags">
+                            <span class="tag">#广陵王</span>
+                            <span class="tag">#角色解析</span>
+                            <span class="tag">#绣衣楼</span>
+                            <span class="tag">#盐王</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="post-actions">
+                            <button><i class="far fa-heart"></i> 1.2k</button>
+                            <button><i class="far fa-comment"></i> 256</button>
+                            <button><i class="far fa-bookmark"></i> 收藏</button>
+                        </div>
+                        <div class="post-stats">
+                            <i class="fas fa-eye"></i> 5.7k
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title" style="margin-top: 40px;"><i class="fas fa-quote-right"></i> 经典语录</h2>
+                
+                <!-- 语录卡片 -->
+                <div class="quote-grid">
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "权力若已经在你手上了，谁敢来验你？权力若不在你手，管你是男是女，立刻让你变鬼。"
+                        </div>
+                        <div class="quote-source">— 广陵王</div>
+                    </div>
+                    
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "我就是想要……在这御座上坐一坐"
+                        </div>
+                        <div class="quote-source">— 广陵王</div>
+                    </div>
+                    
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "血书留名，青史留名，皆是虚名而已。它不需要我的血，它只需要董卓的血。"
+                        </div>
+                        <div class="quote-source">— 广陵王（讨董血书签名时）</div>
+                    </div>
+                    
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "真好。起了杀心，才证明动过真心呀……必须下杀手，才能平心中之乱。"
+                        </div>
+                        <div class="quote-source">— 广陵王</div>
+                    </div>
+                    
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "我想去哪，就去哪"
+                        </div>
+                        <div class="quote-source">— 广陵王</div>
+                    </div>
+                    
+                    <div class="quote-card">
+                        <div class="quote-content">
+                            "你算什么东西，敢来定我的生死？！"
+                        </div>
+                        <div class="quote-source">— 广陵王</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- 侧边栏 -->
+            <!-- 右侧边栏 -->
             <div class="sidebar">
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title"><i class="fas fa-chart-line"></i> 热门话题</h3>
-                    <div class="trending-posts">
-                        <div class="trending-post">
-                            <div class="trending-rank">1</div>
-                            <div class="trending-content">
-                                <h4>广陵王与XX角色的CP分析</h4>
-                                <p>热度：2.4K · 作者：鸢学家</p>
-                            </div>
-                        </div>
-                        <div class="trending-post">
-                            <div class="trending-rank">2</div>
-                            <div class="trending-content">
-                                <h4>广陵王服饰演变史考据</h4>
-                                <p>热度：1.8K · 作者：历史考据党</p>
-                            </div>
-                        </div>
-                        <div class="trending-post">
-                            <div class="trending-rank">3</div>
-                            <div class="trending-content">
-                                <h4>如何绘制广陵王同人图</h4>
-                                <p>热度：1.5K · 作者：绘画教程君</p>
-                            </div>
-                        </div>
-                        <div class="trending-post">
-                            <div class="trending-rank">4</div>
-                            <div class="trending-content">
-                                <h4>广陵王经典台词整理</h4>
-                                <p>热度：1.2K · 作者：台词收集者</p>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">角色档案</div>
+                    <div class="sidebar-content">
+                        <div class="character-profile">
+                            <div class="profile-img" style="background-image: url('images/image4.jpg');"></div>
+                            <div class="profile-info">
+                                <h3>广陵王</h3>
+                                <p><strong>别名：</strong>盐王、绣衣楼主</p>
+                                <p><strong>动物塑：</strong>狐狸</p>
+                                <p><strong>身份：</strong>前绣衣校尉 → 乱世广陵亲王</p>
+                                <p><strong>武器：</strong>隐光剑</p>
+                                <p><strong>出身：</strong>隐鸢阁</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title"><i class="fas fa-tags"></i> 热门标签</h3>
-                    <div class="tag-cloud">
-                        <span class="cloud-tag active">#广陵王</span>
-                        <span class="cloud-tag">#同人文</span>
-                        <span class="cloud-tag">#插画</span>
-                        <span class="cloud-tag">#视频剪辑</span>
-                        <span class="cloud-tag">#Cosplay</span>
-                        <span class="cloud-tag">#角色分析</span>
-                        <span class="cloud-tag">#CP讨论</span>
-                        <span class="cloud-tag">#游戏剧情</span>
-                        <span class="cloud-tag">#二创作品</span>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">他人评价</div>
+                    <div class="sidebar-content">
+                        <ul class="trending-list">
+                            <li><i class="fas fa-star"></i> "有人跨桥而来，明月为她迟迟不肯去，清风为她淅淅生好音，天道为她逗留倾覆，称为钟情"</li>
+                            <li><i class="fas fa-star"></i> "广陵王独自提灯，端坐船头，风雨不动，原来有人……生来便能命狮臣、虎伏、龙降"</li>
+                            <li><i class="fas fa-star"></i> "她只是抬手，随意浮动擦身而过的枝条，就把他们都抛下了，去荆棘堆里面找新的道路了。"</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title"><i class="fas fa-info-circle"></i> 社区统计</h3>
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <div>
-                            <p style="color: #666; margin-bottom: 5px;">今日新增作品</p>
-                            <p style="font-size: 1.5rem; color: var(--primary-color); font-weight: bold;">24</p>
-                        </div>
-                        <div>
-                            <p style="color: #666; margin-bottom: 5px;">在线用户</p>
-                            <p style="font-size: 1.5rem; color: var(--accent-color); font-weight: bold;">1,248</p>
-                        </div>
-                        <div>
-                            <p style="color: #666; margin-bottom: 5px;">本周热门作品</p>
-                            <p style="font-size: 1.5rem; color: var(--secondary-color); font-weight: bold;">《雪夜之约》</p>
-                        </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">热门话题</div>
+                    <div class="sidebar-content">
+                        <ul class="trending-list">
+                            <li><i class="fas fa-hashtag"></i> #盐王文学</li>
+                            <li><i class="fas fa-hashtag"></i> #广陵王女扮男装</li>
+                            <li><i class="fas fa-hashtag"></i> #绣衣楼日常</li>
+                            <li><i class="fas fa-hashtag"></i> #隐鸢阁往事</li>
+                            <li><i class="fas fa-hashtag"></i> #广陵王与袁绍</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sidebar-card">
+                    <div class="sidebar-title">活跃创作者</div>
+                    <div class="sidebar-content">
+                        <ul class="trending-list">
+                            <li><i class="fas fa-user"></i> 隐鸢阁弟子</li>
+                            <li><i class="fas fa-user"></i> 绣衣楼密探</li>
+                            <li><i class="fas fa-user"></i> 盐王研究者</li>
+                            <li><i class="fas fa-user"></i> 广陵王后援会</li>
+                            <li><i class="fas fa-user"></i> 乱世史官</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 
     <!-- 页脚 -->
     <footer>
-        <div class="container footer-container">
-            <div class="footer-section">
-                <h3>关于本站</h3>
-                <p>代号鸢 · 广陵王二次元创作社区是一个专注于代号鸢游戏中广陵王角色的同人创作交流平台。我们致力于为所有喜爱广陵王的玩家提供一个分享、交流、创作的空间。</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-weibo"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-bilibili"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>广陵王社区</h3>
+                    <p>一个专注于广陵王及其相关二次元创作与交流的平台，汇聚所有热爱这位乱世枭雄的同好。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">发现</a></li>
+                        <li><a href="#">热门话题</a></li>
+                        <li><a href="#">创作指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">用户指南</a></li>
+                        <li><a href="#">社区规则</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>关注我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-weibo"></i> 微博</a></li>
+                        <li><a href="#"><i class="fab fa-bilibili"></i> B站</a></li>
+                        <li><a href="#"><i class="fab fa-qq"></i> QQ群</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> 邮箱</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>快速链接</h3>
-                <ul class="footer-links">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">作品展示</a></li>
-                    <li><a href="#">角色档案</a></li>
-                    <li><a href="#">热门话题</a></li>
-                    <li><a href="#">发布作品</a></li>
-                    <li><a href="#">社区规则</a></li>
-                </ul>
+            <div class="copyright">
+                &copy; 2023 广陵王二次元社区 | 致敬所有热爱广陵王的创作者
             </div>
-            
-            <div class="footer-section">
-                <h3>创作类别</h3>
-                <ul class="footer-links">
-                    <li><a href="#">同人小说</a></li>
-                    <li><a href="#">插画作品</a></li>
-                    <li><a href="#">视频剪辑</a></li>
-                    <li><a href="#">Cosplay</a></li>
-                    <li><a href="#">音乐创作</a></li>
-                    <li><a href="#">分析解读</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>联系我们</h3>
-                <ul class="footer-links">
-                    <li><a href="#">合作建议</a></li>
-                    <li><a href="#">问题反馈</a></li>
-                    <li><a href="#">版权声明</a></li>
-                    <li><a href="#">隐私政策</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2023 代号鸢 · 广陵王二次元创作社区 | 本网站为同人创作交流平台，与官方无关 | Designed with <i class="fas fa-heart" style="color: #ff69b4;"></i> for 广陵王粉丝</p>
         </div>
     </footer>
 
     <script>
-        // 简单交互功能
+        // 简单的交互功能
         document.addEventListener('DOMContentLoaded', function() {
-            // 搜索功能
-            const searchInput = document.querySelector('.search-bar input');
-            const searchButton = document.querySelector('.search-bar button');
-            
-            searchButton.addEventListener('click', function() {
-                const searchTerm = searchInput.value.trim();
-                if (searchTerm) {
-                    alert(`搜索: ${searchTerm}\n(此功能为演示，实际需连接后端API)`);
-                    searchInput.value = '';
-                }
-            });
-            
-            // 标签点击效果
-            const tags = document.querySelectorAll('.cloud-tag');
-            tags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    // 移除其他标签的active类
-                    tags.forEach(t => t.classList.remove('active'));
-                    // 给当前点击的标签添加active类
-                    this.classList.add('active');
-                    
-                    const tagName = this.textContent;
-                    alert(`筛选标签: ${tagName}\n(此功能为演示，实际会筛选对应标签的内容)`);
-                });
-            });
-            
             // 点赞功能
-            const likeButtons = document.querySelectorAll('.post-action .fa-heart');
+            const likeButtons = document.querySelectorAll('.post-actions button:first-child');
             likeButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const heartIcon = this;
-                    const countSpan = this.nextElementSibling;
-                    
-                    if (heartIcon.classList.contains('far')) {
-                        heartIcon.classList.remove('far');
-                        heartIcon.classList.add('fas');
-                        heartIcon.style.color = '#ff69b4';
-                        countSpan.textContent = parseInt(countSpan.textContent) + 1;
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#ff4757';
                     } else {
-                        heartIcon.classList.remove('fas');
-                        heartIcon.classList.add('far');
-                        heartIcon.style.color = '';
-                        countSpan.textContent = parseInt(countSpan.textContent) - 1;
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
                     }
                 });
             });
             
-            // 发布作品按钮
-            const publishBtn = document.querySelector('.btn-primary');
-            publishBtn.addEventListener('click', function() {
-                alert('发布作品功能\n(此功能为演示，实际需用户登录并上传作品)');
-            });
-            
-            // 帖子点击查看详情
-            const postCards = document.querySelectorAll('.post-card');
-            postCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const title = this.querySelector('.post-title').textContent;
-                    alert(`查看作品详情: ${title}\n(此功能为演示，实际会跳转到作品详情页)`);
+            // 收藏功能
+            const bookmarkButtons = document.querySelectorAll('.post-actions button:last-child');
+            bookmarkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#ffa502';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                    }
                 });
             });
         });
